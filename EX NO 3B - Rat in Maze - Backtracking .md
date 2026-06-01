@@ -15,22 +15,68 @@ Explanation: One possible way is : left -> down -> left -> down -> right -> down
 
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+
+1.Start and read the maze, start point, and destination.
+
+2.Initialize a visited matrix to track visited cells.
+
+3.From the current cell, move in all four directions until hitting a wall.
+
+4.Mark visited cells and recursively explore unvisited reachable positions.
+
+5.If the destination is reached, return true; else return false.
 
 ## Program:
 ```
 /*
-Program to implement Reverse a String
-Developed by: 
-Register Number:  
+Developed by: Manisha selvakumari.S.S.
+Register Number: 212223220055 
 */
+import java.util.Scanner;
+
+public class Main {
+
+    // Recursive function to count expressions
+    static int findWays(int[] nums, int index, int target) {
+
+        // Base case
+        if (index == nums.length) {
+            return target == 0 ? 1 : 0;
+        }
+
+        // Add current number
+        int add = findWays(nums, index + 1, target - nums[index]);
+
+        // Subtract current number
+        int subtract = findWays(nums, index + 1, target + nums[index]);
+
+        return add + subtract;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[] nums = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        int target = sc.nextInt();
+
+        int result = findWays(nums, 0, target);
+
+        System.out.println("Output: " + result);
+    }
+}
 ```
 
 ## Output:
+
+<img width="1153" height="295" alt="image" src="https://github.com/user-attachments/assets/66cbebc0-8ad7-4785-9761-6a28235000a4" />
 
 
 
